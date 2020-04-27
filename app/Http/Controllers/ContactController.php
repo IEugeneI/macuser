@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Http\Requests\CreateContact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -41,7 +42,7 @@ class ContactController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function store(Request $request)
+    public function store(CreateContact $request)
     {
         $contact = $this->contact::create($request->all());
         return view('phones.create')->with(['id' => $contact->id]);
